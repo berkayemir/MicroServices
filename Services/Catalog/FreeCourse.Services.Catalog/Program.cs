@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(StartupBase));
 
 builder.Services.AddScoped<ICategoryService,CategoryService>();
+builder.Services.AddScoped<ICourseService,CourseService>();
 
 builder.Configuration.GetSection("DatabaseSettings");
 
