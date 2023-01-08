@@ -15,11 +15,12 @@ builder.Services.AddAutoMapper(typeof(StartupBase));
 builder.Services.AddScoped<ICategoryService,CategoryService>();
 builder.Services.AddScoped<ICourseService,CourseService>();
 
-builder.Configuration.GetSection("DatabaseSettings");
+builder.Services.Configure<DatabaseSettings>(
+    builder.Configuration.GetSection("DatabaseSettings"));
 
 builder.Services.AddSingleton<IDatabaseSettings>(sp =>
 {
-    return sp.GetRequiredService<IOptions<IDatabaseSettings>>().Value;
+    return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
 });
 
 var app = builder.Build();

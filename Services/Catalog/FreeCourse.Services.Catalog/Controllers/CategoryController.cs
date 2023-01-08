@@ -1,10 +1,6 @@
-﻿using AutoMapper;
-using FreeCourse.Services.Catalog.Dtos;
-using FreeCourse.Services.Catalog.Models;
+﻿using FreeCourse.Services.Catalog.Dtos;
 using FreeCourse.Services.Catalog.Services;
 using FreeCourse.Shared.ControllerBases;
-using FreeCourse.Shared.Dtos;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FreeCourse.Services.Catalog.Controllers
@@ -14,14 +10,12 @@ namespace FreeCourse.Services.Catalog.Controllers
     public class CategoryController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;
-        private readonly Mapper _mapper;
 
-        public CategoryController(ICategoryService categoryService, Mapper mapper)
+        public CategoryController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
-            _mapper = mapper;
         }
-
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var categories = await _categoryService.GetAllAsync();
@@ -34,11 +28,11 @@ namespace FreeCourse.Services.Catalog.Controllers
             return CreateActionResultInstance(category);
         }
 
+        [HttpPost]
         public async Task<IActionResult> Create(CategoryDto categoryDto)
         {
            var response=  await _categoryService.CreateAsync(categoryDto);
             return CreateActionResultInstance(response);  
-
 
         }
 
