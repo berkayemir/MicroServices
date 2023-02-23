@@ -3,6 +3,7 @@
 
 
 using IdentityServer4;
+//using IdentityServer4.EntityFramework.Entities;
 using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
@@ -59,9 +60,13 @@ namespace FreeCourse.IdentityServer
                {
                    ClientName="Asp.Net Core MVC",
                    ClientId="WebMvcClientForUser",
+                   AllowOfflineAccess=true,
                    ClientSecrets={new Secret("secret".Sha256())},
                    AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
-                   AllowedScopes={IdentityServerConstants.StandardScopes.Email,IdentityServerConstants.StandardScopes.OpenId,IdentityServerConstants.StandardScopes.Profile,IdentityServerConstants.StandardScopes.OfflineAccess },
+                   AllowedScopes={IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.OfflineAccess,IdentityServerConstants.LocalApi.ScopeName,"roles" },
                    AccessTokenLifetime=1*60*60,
                    RefreshTokenExpiration=TokenExpiration.Absolute,
                    AbsoluteRefreshTokenLifetime=(int)(DateTime.UtcNow.AddDays(60)-DateTime.Now).TotalSeconds,

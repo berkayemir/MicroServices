@@ -1,2 +1,4 @@
 Services
 -catalogAPI=>http://localhost:50011
+-iddentityServer=5001
+-photoStock=>5012
