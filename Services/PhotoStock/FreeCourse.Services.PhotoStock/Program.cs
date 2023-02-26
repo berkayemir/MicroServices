@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.Authority = builder.Configuration["IdentityServerUrl"];
-    options.Audience = "photo_stock_catalog";
+    options.Audience = "resource_photo_stock";
     options.RequireHttpsMetadata = false;
 });
 builder.Services.AddEndpointsApiExplorer();
