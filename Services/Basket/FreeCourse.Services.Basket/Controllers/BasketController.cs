@@ -20,6 +20,7 @@ namespace FreeCourse.Services.Basket.Controllers
             _sharedIdentityService = sharedIdentityService;
         }
 
+
         [HttpGet]
         public async Task< IActionResult> GetBasket()
         {

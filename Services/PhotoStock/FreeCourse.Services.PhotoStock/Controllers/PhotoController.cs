@@ -1,4 +1,4 @@
-﻿using FreeCourse.Services.PhotoStock.Dtos;
+﻿ using FreeCourse.Services.PhotoStock.Dtos;
 using FreeCourse.Shared.ControllerBases;
 using FreeCourse.Shared.Dtos;
 using Microsoft.AspNetCore.Http;
