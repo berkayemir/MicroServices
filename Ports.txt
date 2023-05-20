@@ -6,3 +6,4 @@ Services
 -discountAPI=>5014
 -orderAPI=>5015
 -fakePaymentAPI=>5016
+-gateWay=>5000
